@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CasA.Mi.Ca. — Casa vacanza a Torre Canne, Fasano (Puglia)</title>
+<meta name="description" content="Casa vacanza per 6 persone in Via del Faro 176, Torre Canne (Fasano). A 100 metri dal mare e 90 dal faro, con terrazza sul tetto vista mare.">
+<meta name="theme-color" content="#04222B">
+
+<!-- ⚠️ MODIFICA QUI quando il sito è online: metti l'indirizzo definitivo.
+     Esempio: https://micheledeca03.github.io/casamica/  (la barra finale ci vuole) -->
+<link rel="canonical" href="https://ESEMPIO.github.io/casamica/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CasA.Mi.Ca. — Casa vacanza a Torre Canne">
+<meta property="og:description" content="Via del Faro 176. Cento metri dall'acqua, novanta dal faro. Sei posti letto e una terrazza sul tetto.">
+<meta property="og:image" content="https://ESEMPIO.github.io/casamica/img/og.jpg"><!-- ⚠️ dev'essere un indirizzo completo -->
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 48'%3E%3Cpath fill='%234FA9A8' d='M16 0l4 5-1.4 2H13.4L12 5zM11 9h10l1.4 5H9.6zM9 16h14l3 30H6zM13 22h6v7h-6z'/%3E%3C/svg%3E">
+
+<link rel="preload" href="assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="img/mare-torre-canne.jpg" fetchpriority="high">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/leaflet/leaflet.css">
+<link rel="stylesheet" href="assets/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VacationRental",
+  "name": "CasA.Mi.Ca.",
+  "description": "Casa vacanza per 6 persone a Torre Canne (Fasano, Puglia), a 100 metri dal mare, con terrazza sul tetto.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via del Faro 176",
+    "addressLocality": "Torre Canne, Fasano",
+    "addressRegion": "BR",
+    "postalCode": "72015",
+    "addressCountry": "IT"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 40.8411693, "longitude": 17.4682893 },
+  "telephone": "+39 327 319 8945",
+  "email": "casamica.torrecanne@gmail.com",
+  "numberOfRooms": 2,
+  "occupancy": { "@type": "QuantitativeValue", "maxValue": 6 },
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Wifi", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Aria condizionata", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Cucina", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Accesso alla spiaggia", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Zona pranzo all'aperto", "value": true }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-spiaggia" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 18c1.6 0 1.6 1.4 3.2 1.4S6.8 18 8.4 18s1.6 1.4 3.2 1.4S13.2 18 14.8 18s1.6 1.4 3.2 1.4S19.6 18 21.2 18"/><path d="M2 21.5c1.6 0 1.6 1 3.2 1s1.6-1 3.2-1 1.6 1 3.2 1 1.6-1 3.2-1 1.6 1 3.2 1 1.6-1 3.2-1"/><path d="M12 15V5"/><path d="M4.5 11a7.5 7.5 0 0 1 15 0z"/></g></symbol>
+  <symbol id="i-aria" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2v20M4.3 6.5l15.4 11M19.7 6.5L4.3 17.5"/><path d="M12 6.2 9.6 4M12 6.2 14.4 4M12 17.8 9.6 20M12 17.8l2.4 2.2"/></g></symbol>
+  <symbol id="i-camino" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M3 21V5.5h18V21"/><path d="M7 21v-6.5h10V21"/><path d="M12 12.2c1.4-1 1.7-2.3 1-3.6 1.9.7 2.8 2 2.3 3.6"/></g></symbol>
+  <symbol id="i-cucina" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M4 9h16v9.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M2.5 9h19"/><path d="M8 5.5c0-1 1-1.3 1-2.5M12 5.5c0-1 1-1.3 1-2.5M16 5.5c0-1 1-1.3 1-2.5"/></g></symbol>
+  <symbol id="i-estintore" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="7" y="8" width="9" height="13"/><path d="M9.5 8V5.5h4V8"/><path d="M13.5 5.5h4.2l1.8 2.5"/><path d="M11.5 12h1.5"/></g></symbol>
+  <symbol id="i-soccorso" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="14"/><path d="M8.5 6V4.5a1.5 1.5 0 0 1 1.5-1.5h4a1.5 1.5 0 0 1 1.5 1.5V6"/><path d="M12 10v6M9 13h6"/></g></symbol>
+  <symbol id="i-parcheggio" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18"/><path d="M9.5 17V7.5h3.2a2.9 2.9 0 0 1 0 5.8H9.5"/></g></symbol>
+  <symbol id="i-monossido" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.2"/><path d="M12 3.5v2M12 18.5v2M3.5 12h2M18.5 12h2"/></g></symbol>
+  <symbol id="i-tv" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="12.5"/><path d="M8.5 21h7"/></g></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2.5 9.2a14 14 0 0 1 19 0"/><path d="M6 12.8a9 9 0 0 1 12 0"/><path d="M9.4 16.4a4.2 4.2 0 0 1 5.2 0"/><circle cx="12" cy="19.6" r=".9" fill="currentColor" stroke="none"/></g></symbol>
+  <symbol id="i-pranzo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 11.5h19"/><path d="M4.5 11.5 3 21M19.5 11.5 21 21M12 11.5V21"/><path d="M6 8a6 6 0 0 1 12 0"/><path d="M12 2v1.4"/></g></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M5 5l14 14M19 5 5 19"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 6l-6 6 6 6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 6l6 6-6 6"/></symbol>
+</svg>
+
+<!-- =============================================================== header -->
+<header class="head" id="head">
+  <div class="wrap head__in">
+    <a class="brand" href="#top" aria-label="CasA.Mi.Ca., torna in cima">
+      <img class="mk-light" src="img/marchio-chiaro.png" alt="" width="42" height="38">
+      <img class="mk-dark"  src="img/marchio.png" alt="" width="42" height="38">
+      <span>CasA.Mi.Ca.</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Principale">
+      <a href="#casa">La casa</a>
+      <a href="#spazi">Gli spazi</a>
+      <a href="#galleria">Galleria</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#dintorni">Dintorni</a>
+      <a class="btn" href="#contatti">Scrivici</a>
+    </nav>
+
+    <a class="btn head__cta" href="#contatti">Scrivici</a>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Apri il menu"><i></i></button>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ================================================================= hero -->
+<section class="hero">
+  <div class="hero__img">
+    <img src="img/mare-torre-canne.jpg" alt="La spiaggia di Torre Canne con l'acqua trasparente e il fondale basso" width="1800" height="1350" fetchpriority="high" decoding="async">
+  </div>
+
+  <div class="wrap hero__body">
+    <p class="m hero__coord">40°50′28″N &nbsp;17°28′06″E &nbsp;— &nbsp;Torre Canne, Fasano</p>
+    <h1 class="d1">Cento metri e sei in acqua.</h1>
+    <p class="hero__sub">Casa vacanza per sei in Via del Faro 176: due camere, cucina con vista sul mare da due lati, terrazza sul tetto.</p>
+    <div class="hero__act">
+      <a class="btn" href="#contatti">Chiedi le date libere <svg aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+      <a class="btn btn--out" href="#galleria">Guarda le foto</a>
+    </div>
+  </div>
+
+  <div class="hero__rail">
+   <div class="wrap">
+    <ul class="m">
+      <li>6 ospiti</li>
+      <li>2 camere</li>
+      <li>100 m dal mare</li>
+      <li>90 m dal faro</li>
+      <li>Terrazza sul tetto</li>
+    </ul>
+   </div>
+  </div>
+</section>
+
+<!-- ============================================================== la casa -->
+<section class="sec" id="casa">
+  <p class="vlabel m">01 — La casa</p>
+  <div class="wrap opener">
+    <div class="opener__txt rv">
+      <p class="m" style="color:var(--sea);margin:0 0 1.4rem">Via del Faro 176</p>
+      <p class="big">Sta sulla strada che porta al faro, a novanta metri dal faro stesso e a cento dall'acqua. Sei posti letto, due camere, e una terrazza sul tetto da cui si vedono i tetti bianchi e la linea del mare.</p>
+      <p class="small">Ambienti curati in stile mediterraneo, con tutti i comfort. È la casa giusta per famiglie o gruppi di amici che cercano relax, natura, buona cucina e i tramonti della Puglia.</p>
+      <a class="btn" href="#spazi">Vedi gli spazi <svg aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+    </div>
+    <figure class="opener__media rv">
+      <img src="img/terrazza-amaca.jpg" alt="L'amaca sulla terrazza sul tetto, con il faro di Torre Canne e il mare sullo sfondo" width="1800" height="1350" loading="lazy" decoding="async">
+      <figcaption class="m">La terrazza, ore 10:15</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================================================ gli spazi -->
+<section class="sec sec--alt" id="spazi">
+  <p class="vlabel m">02 — Gli spazi</p>
+  <div class="wrap">
+    <div class="head-block rv">
+      <p class="m">Gli spazi</p>
+      <h2 class="d2">Quattro stanze e due cieli aperti.</h2>
+      <p class="lede">Il piano di sotto con la veranda all'ombra, il piano di sopra con la terrazza. In mezzo, tutto quello che serve per stare comodi in sei.</p>
+    </div>
+
+    <div class="room rv">
+      <figure class="room__media">
+        <img src="img/cucina-tavola.jpg" alt="La cucina abitabile con il tavolo apparecchiato" width="1800" height="1350" loading="lazy" decoding="async">
+        <img src="img/t/cucina.jpg" alt="La cucina vista dall'ingresso" width="820" height="615" loading="lazy" decoding="async">
+        <img src="img/t/sala-camino.jpg" alt="Il camino e la televisione nella zona giorno" width="820" height="625" loading="lazy" decoding="async">
+      </figure>
+      <div class="room__body">
+        <span class="m">Piano giorno</span>
+        <h3 class="d3">Cucina e sala</h3>
+        <p>La cucina è abitabile e guarda il mare da due lati: si apparecchia, si cucina il pescato del giorno e si resta seduti a parlare. Accanto, la sala con divano, camino e televisione, per le sere in cui il vento gira.</p>
+        <ul class="room__list">
+          <li>Tavolo <span>6 posti</span></li>
+          <li>Cucina <span>Forno · piano cottura · frigorifero</span></li>
+          <li>Zona giorno <span>Divano · camino · TV</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="room room--flip rv">
+      <figure class="room__media">
+        <img src="img/camera-matrimoniale.jpg" alt="La camera matrimoniale" width="1800" height="1350" loading="lazy" decoding="async">
+        <img src="img/t/camera-doppia.jpg" alt="La camera con due letti singoli" width="820" height="615" loading="lazy" decoding="async">
+        <img src="img/t/bagno.jpg" alt="Il bagno principale" width="820" height="615" loading="lazy" decoding="async">
+      </figure>
+      <div class="room__body">
+        <span class="m">Notte</span>
+        <h3 class="d3">Le camere</h3>
+        <p>Due camere spaziose: una matrimoniale con televisione e armadiatura, una con due letti singoli. Sei posti letto in tutto contando la zona giorno, e l'aria condizionata per le notti di agosto.</p>
+        <ul class="room__list">
+          <li>Posti letto <span>6</span></li>
+          <li>Camere <span>1 matrimoniale + 1 doppia</span></li>
+          <li>Bagni <span>Principale con doccia + servizio</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="room rv">
+      <figure class="room__media">
+        <img src="img/veranda.jpg" alt="La veranda al piano terra con divanetto e poltrone" width="1800" height="1350" loading="lazy" decoding="async">
+        <img src="img/t/veranda-2.jpg" alt="La veranda vista dall'altro lato" width="820" height="615" loading="lazy" decoding="async">
+        <img src="img/t/sole-e-luna.jpg" alt="Il sole e la luna in ceramica appesi al muro" width="820" height="578" loading="lazy" decoding="async">
+      </figure>
+      <div class="room__body">
+        <span class="m">Piano terra</span>
+        <h3 class="d3">La veranda</h3>
+        <p>Riparata dal sole e dal vento, con divanetto, poltrone e un tavolo. È il posto della colazione presto, del libro nelle ore calde e dei costumi stesi ad asciugare al ritorno dalla spiaggia.</p>
+        <ul class="room__list">
+          <li>Ombra <span>Tutto il giorno</span></li>
+          <li>Ingresso <span>Indipendente, dalla strada</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="room room--flip rv">
+      <figure class="room__media">
+        <img src="img/terrazza-pranzo.jpg" alt="La terrazza sul tetto con il grande tavolo di legno sotto la tettoia" width="1800" height="1350" loading="lazy" decoding="async">
+        <img src="img/t/faro-dalla-terrazza.jpg" alt="Il faro di Torre Canne visto dalla terrazza" width="820" height="615" loading="lazy" decoding="async">
+        <img src="img/t/terrazza-lampada.jpg" alt="Le lampadine appese ai legni raccolti in spiaggia" width="820" height="615" loading="lazy" decoding="async">
+      </figure>
+      <div class="room__body">
+        <span class="m">Piano attico</span>
+        <h3 class="d3">La terrazza sul tetto</h3>
+        <p>È il pezzo forte. Un grande tavolo sotto la tettoia, l'amaca tesa fra due pilastri e, oltre i tetti bianchi, il faro e la linea del mare. Si cena qui quasi tutte le sere, con le lampadine appese ai legni raccolti in spiaggia.</p>
+        <ul class="room__list">
+          <li>Tavolo all'aperto <span>8 posti, all'ombra</span></li>
+          <li>Vista <span>Faro e mare</span></li>
+          <li>In più <span>Amaca · piante · panca</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================== banda: mare -->
+<section class="plunge" aria-label="Il mare di Torre Canne">
+  <div class="plunge__img">
+    <img src="img/acqua-limpida.jpg" alt="Acqua trasparente sugli scogli di Torre Canne" width="1800" height="1350" loading="lazy" decoding="async">
+  </div>
+  <div class="plunge__txt">
+    <div class="wrap">
+      <h2 class="d2">Il fondale si vede fino in fondo.</h2>
+      <p>Sabbia fine e acqua che resta bassa per decine di metri: si cammina in mare, i bambini giocano tranquilli, e sugli scogli poco più in là si nuota fra i pesci.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================= galleria -->
+<section class="sec" id="galleria">
+  <p class="vlabel m">03 — Galleria</p>
+  <div class="wrap">
+    <div class="head-block rv">
+      <p class="m">Galleria</p>
+      <h2 class="d2">Ventisei fotografie, nessun ritocco.</h2>
+      <p class="lede">Scattate a luglio, in una mattina qualsiasi. Clicca per ingrandire.</p>
+    </div>
+
+    <div class="grid" id="gallery">
+      <button type="button" data-full="img/terrazza-amaca.jpg" data-label="L'amaca e il faro"><img src="img/t/terrazza-amaca.jpg" alt="L'amaca sulla terrazza con il faro sullo sfondo" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/acqua-limpida.jpg" data-label="Acqua limpida sugli scogli"><img src="img/t/acqua-limpida.jpg" alt="Acqua limpida sugli scogli" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/cucina.jpg" data-label="La cucina abitabile"><img src="img/t/cucina.jpg" alt="La cucina abitabile" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/terrazza-vista.jpg" data-label="Vista dalla terrazza"><img src="img/t/terrazza-vista.jpg" alt="La vista sui tetti bianchi dalla terrazza" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/faro-dalla-terrazza.jpg" data-label="Il faro dalla terrazza"><img src="img/t/faro-dalla-terrazza.jpg" alt="Il faro di Torre Canne visto dalla terrazza" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/sala.jpg" data-label="La sala"><img src="img/t/sala.jpg" alt="La sala con il divano" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/tramonto.jpg" data-label="Tramonto sulla spiaggia"><img src="img/t/tramonto.jpg" alt="Tramonto sulla spiaggia di Torre Canne" width="820" height="369" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/camera-matrimoniale-2.jpg" data-label="Camera matrimoniale"><img src="img/t/camera-matrimoniale-2.jpg" alt="La camera matrimoniale con la televisione" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/terrazza-tavolo.jpg" data-label="Il tavolo in terrazza"><img src="img/t/terrazza-tavolo.jpg" alt="Il tavolo di legno sulla terrazza" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/faro-luminarie.jpg" data-label="Il faro e le luminarie"><img src="img/t/faro-luminarie.jpg" alt="Il faro di Torre Canne con le luminarie" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/cucina-sala.jpg" data-label="Dalla cucina alla sala"><img src="img/t/cucina-sala.jpg" alt="Il passaggio dalla cucina alla sala" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/pesci.jpg" data-label="Pesci sotto riva"><img src="img/t/pesci.jpg" alt="Pesci nell'acqua bassa" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/veranda-2.jpg" data-label="La veranda"><img src="img/t/veranda-2.jpg" alt="La veranda al piano terra" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/camera-doppia-2.jpg" data-label="Camera con due letti"><img src="img/t/camera-doppia-2.jpg" alt="La camera con due letti singoli e l'armadio" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/lungomare.jpg" data-label="Il lungomare"><img src="img/t/lungomare.jpg" alt="Il lungomare e gli scogli" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/terrazza-lampada.jpg" data-label="Lampade di legno di mare"><img src="img/t/terrazza-lampada.jpg" alt="Lampade appese a un legno di mare" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/bagno.jpg" data-label="Il bagno"><img src="img/t/bagno.jpg" alt="Il bagno principale" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/porto.jpg" data-label="Il porto"><img src="img/t/porto.jpg" alt="Il porto di Torre Canne" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/dettaglio-legno.jpg" data-label="Legno di mare incorniciato"><img src="img/t/dettaglio-legno.jpg" alt="Un legno di mare incorniciato appeso al muro" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/fondale.jpg" data-label="Il fondale"><img src="img/t/fondale.jpg" alt="Il fondale visto attraverso l'acqua" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/sala-camino.jpg" data-label="Il camino"><img src="img/t/sala-camino.jpg" alt="Il camino con le librerie" width="820" height="625" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/terrazza-dettaglio.jpg" data-label="Fiori sul tavolo"><img src="img/t/terrazza-dettaglio.jpg" alt="Un cactus in fiore sul tavolo della terrazza" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/bagno-doccia.jpg" data-label="La doccia"><img src="img/t/bagno-doccia.jpg" alt="La doccia del bagno principale" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/luminarie.jpg" data-label="Le luminarie in strada"><img src="img/t/luminarie.jpg" alt="Le luminarie sulla strada del faro" width="820" height="669" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/quadro-faro.jpg" data-label="Il faro, in casa"><img src="img/t/quadro-faro.jpg" alt="Una stampa del faro appesa in casa" width="820" height="615" loading="lazy" decoding="async"></button>
+      <button type="button" data-full="img/dettaglio-boa.jpg" data-label="Boa e radice"><img src="img/t/dettaglio-boa.jpg" alt="Una boa gialla e una radice sulla terrazza" width="820" height="615" loading="lazy" decoding="async"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================== servizi -->
+<section class="sec sec--alt" id="servizi">
+  <p class="vlabel m">04 — Servizi</p>
+  <div class="wrap">
+    <div class="head-block rv">
+      <p class="m">Servizi</p>
+      <h2 class="d2">Quello che trovi già in casa.</h2>
+    </div>
+
+    <ul class="amen rv">
+      <li><svg aria-hidden="true"><use href="#i-spiaggia"></use></svg><div><b>Accesso alla spiaggia</b><span>Spiaggia libera e lidi attrezzati a pochi passi</span></div></li>
+      <li><svg aria-hidden="true"><use href="#i-aria"></use></svg><div><b>Aria condizionata</b><span>Raffredda e controlla l'umidità</span></div></li>
+      <li><svg aria-hidden="true"><use href="#i-cucina"></use></svg><div><b>Cucina</b><span>Frigorifero, forno e piano cottura</span></div></li>
+      <li><svg aria-hidden="true"><use href="#i-pranzo"></use></svg><div><b>Zona pranzo all'aperto</b><span>Il tavolo grande in terrazza</span></div></li>
+      <li><svg aria-hidden="true"><use href="#i-wifi"></use></svg><div><b>Wifi</b><span>Connessione in tutta la casa</span></div></li>
+      <li><svg aria-hidden="true"><use href="#i-tv"></use></svg><div><b>TV</b><span>In sala e in camera matrimoniale</span></div></li>
+      <li><svg aria-hidden="true"><use href="#i-camino"></use></svg><div><b>Caminetto interno</b><span>Per le sere fuori stagione</span></div></li>
+      <li><svg aria-hidden="true"><use href="#i-parcheggio"></use></svg><div><b>Parcheggio a pagamento in loco</b><span>Posto auto presso l'alloggio</span></div></li>
+      <li><svg aria-hidden="true"><use href="#i-estintore"></use></svg><div><b>Estintore</b><span>In posizione segnalata</span></div></li>
+      <li><svg aria-hidden="true"><use href="#i-soccorso"></use></svg><div><b>Kit di primo soccorso</b><span>Sempre disponibile</span></div></li>
+      <li><svg aria-hidden="true"><use href="#i-monossido"></use></svg><div><b>Rilevatore di monossido</b><span>Installato e funzionante</span></div></li>
+    </ul>
+
+    <!-- ⚠️ MODIFICA QUI se le condizioni sono diverse -->
+    <ul class="notes m rv">
+      <li>Biancheria e asciugamani su richiesta</li>
+      <li>Animali: scrivici, ne parliamo</li>
+      <li>Check-in flessibile, ci siamo noi ad accogliervi</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================= dintorni -->
+<section class="sec" id="dintorni">
+  <p class="vlabel m">05 — Dintorni</p>
+  <div class="wrap">
+    <div class="head-block rv">
+      <p class="m">Dintorni</p>
+      <h2 class="d2">Tutto a piedi. Il resto della Puglia a mezz'ora.</h2>
+      <p class="lede">Le distanze sono su scala logaritmica: ogni tacca vale dieci volte la precedente. Serve a far vedere in un colpo d'occhio quanto sta davvero vicino.</p>
+    </div>
+
+    <div class="around">
+      <div class="rv">
+        <ul class="chips" role="group" aria-label="Filtra i luoghi">
+          <li><button type="button" data-filter="all" aria-pressed="true">Tutti</button></li>
+          <li><button type="button" data-filter="piedi" aria-pressed="false">A piedi</button></li>
+          <li><button type="button" data-filter="auto" aria-pressed="false">In auto</button></li>
+          <li><button type="button" data-filter="gita" aria-pressed="false">Gite in giornata</button></li>
+        </ul>
+
+        <div class="scale m" aria-hidden="true" id="scale">
+          <span>100 m</span><span>1 km</span><span>10 km</span><span>100 km</span>
+        </div>
+
+        <ul class="places" id="places">
+          <li class="grp m" data-group="piedi">A piedi</li>
+          <li data-cat="piedi"><button class="place" type="button" data-lat="40.841825" data-lng="17.468847" data-km="0.09"><span><span class="place__n">Faro di Torre Canne</span><span class="place__d">Bianco sulla piazza, è il simbolo del paese. Dalla casa si vede.</span></span><span class="place__k">90 m<small>1 min</small></span><span class="place__t"><b></b><i></i></span></button></li>
+          <li data-cat="piedi"><button class="place" type="button" data-lat="40.8425" data-lng="17.4700" data-km="0.2"><span><span class="place__n">Il mare</span><span class="place__d">Sabbia fine e fondale basso: si cammina in acqua per decine di metri.</span></span><span class="place__k">100 m<small>2 min</small></span><span class="place__t"><b></b><i></i></span></button></li>
+          <li data-cat="piedi"><button class="place" type="button" data-lat="40.8400648" data-lng="17.4697584" data-km="0.15"><span><span class="place__n">Ristoranti, bar e alimentari</span><span class="place__d">Il paese è tutto intorno: sotto casa c'è un ristorante.</span></span><span class="place__k">150 m<small>2 min</small></span><span class="place__t"><b></b><i></i></span></button></li>
+          <li data-cat="piedi"><button class="place" type="button" data-lat="40.8422" data-lng="17.4716" data-km="0.4"><span><span class="place__n">Porto e lungomare</span><span class="place__d">Le barche dei pescatori e la passeggiata al tramonto.</span></span><span class="place__k">400 m<small>5 min</small></span><span class="place__t"><b></b><i></i></span></button></li>
+          <li data-cat="piedi"><button class="place" type="button" data-lat="40.831718" data-lng="17.468410" data-km="1.3"><span><span class="place__n">Terme di Torre Canne</span><span class="place__d">Acque termali e trattamenti, immerse nel verde.</span></span><span class="place__k">1,3 km<small>16 min</small></span><span class="place__t"><b></b><i></i></span></button></li>
+          <li data-cat="piedi"><button class="place" type="button" data-lat="40.831826" data-lng="17.472997" data-km="1.4"><span><span class="place__n">Lidi attrezzati</span><span class="place__d">Sabbia d'Oro, Lido Verde e gli altri, verso sud lungo la costa.</span></span><span class="place__k">1,4 km<small>17 min</small></span><span class="place__t"><b></b><i></i></span></button></li>
+
+          <li class="grp m" data-group="auto">In bici o in auto</li>
+          <li data-cat="auto"><button class="place" type="button" data-lat="40.874267" data-lng="17.409104" data-km="8"><span><span class="place__n">Savelletri</span><span class="place__d">Porticciolo di pescatori, ricci e crudi di mare.</span></span><span class="place__k">8 km<small>12 min</small></span><span class="place__t"><b></b><i></i></span></button></li>
+          <li data-cat="auto"><button class="place" type="button" data-lat="40.8012" data-lng="17.5208" data-km="8"><span><span class="place__n">Parco delle Dune Costiere</span><span class="place__d">Dune, uliveti secolari e piste ciclabili fino a Ostuni.</span></span><span class="place__k">8 km<small>12 min</small></span><span class="place__t"><b></b><i></i></span></button></li>
+          <li data-cat="auto"><button class="place" type="button" data-lat="40.885964" data-lng="17.387114" data-km="11"><span><span class="place__n">Parco archeologico di Egnazia</span><span class="place__d">Città messapica e romana affacciata sul mare, con museo.</span></span><span class="place__k">11 km<small>15 min</small></span><span class="place__t"><b></b><i></i></span></button></li>
+          <li data-cat="auto"><button class="place" type="button" data-lat="40.834520" data-lng="17.359699" data-km="12"><span><span class="place__n">Fasano</span><span class="place__d">Il centro, il mercato e le masserie intorno.</span></span><span class="place__k">12 km<small>18 min</small></span><span class="place__t"><b></b><i></i></span></button></li>
+          <li data-cat="auto"><button class="place" type="button" data-lat="40.832451" data-lng="17.340767" data-km="14"><span><span class="place__n">Zoosafari Fasanolandia</span><span class="place__d">Il safari si attraversa in auto: da fare con i bambini.</span></span><span class="place__k">14 km<small>20 min</small></span><span class="place__t"><b></b><i></i></span></button></li>
+          <li data-cat="auto"><button class="place" type="button" data-lat="40.733373" data-lng="17.577884" data-km="20"><span><span class="place__n">Ostuni, la Città Bianca</span><span class="place__d">Il centro storico imbiancato a calce, in cima alla collina.</span></span><span class="place__k">20 km<small>25 min</small></span><span class="place__t"><b></b><i></i></span></button></li>
+          <li data-cat="auto"><button class="place" type="button" data-lat="40.953020" data-lng="17.304044" data-km="24"><span><span class="place__n">Monopoli</span><span class="place__d">Porto antico, centro storico e calette poco fuori città.</span></span><span class="place__k">24 km<small>30 min</small></span><span class="place__t"><b></b><i></i></span></button></li>
+
+          <li class="grp m" data-group="gita">Gite in giornata</li>
+          <li data-cat="gita"><button class="place" type="button" data-lat="40.786495" data-lng="17.240884" data-km="30"><span><span class="place__n">Alberobello</span><span class="place__d">I trulli, patrimonio UNESCO. Meglio la mattina presto.</span></span><span class="place__k">30 km<small>35 min</small></span><span class="place__t"><b></b><i></i></span></button></li>
+          <li data-cat="gita"><button class="place" type="button" data-lat="40.876203" data-lng="17.149003" data-km="35"><span><span class="place__n">Grotte di Castellana</span><span class="place__d">Tre chilometri di grotte carsiche fino alla Grotta Bianca.</span></span><span class="place__k">35 km<small>40 min</small></span><span class="place__t"><b></b><i></i></span></button></li>
+          <li data-cat="gita"><button class="place" type="button" data-lat="40.996389" data-lng="17.218131" data-km="35"><span><span class="place__n">Polignano a Mare</span><span class="place__d">Lama Monachile e le grotte a picco sul mare.</span></span><span class="place__k">35 km<small>40 min</small></span><span class="place__t"><b></b><i></i></span></button></li>
+          <li data-cat="gita"><button class="place" type="button" data-lat="40.351975" data-lng="18.168956" data-km="90"><span><span class="place__n">Lecce</span><span class="place__d">Il barocco leccese: un'ora di superstrada, tutta dritta.</span></span><span class="place__k">90 km<small>1 h</small></span><span class="place__t"><b></b><i></i></span></button></li>
+          <li data-cat="gita"><button class="place" type="button" data-lat="40.666400" data-lng="16.611300" data-km="110"><span><span class="place__n">Matera</span><span class="place__d">I Sassi, patrimonio UNESCO. Da partire presto.</span></span><span class="place__k">110 km<small>1 h 30</small></span><span class="place__t"><b></b><i></i></span></button></li>
+        </ul>
+      </div>
+
+      <div class="map-col rv">
+        <div class="map" id="map" role="application" aria-label="Mappa dei dintorni di Torre Canne">
+          <div class="map__fb m" id="mapFallback">Caricamento della mappa…</div>
+        </div>
+        <div class="map__f m">
+          <span>Il cerchio tratteggiato è un raggio di 1 km</span>
+          <button type="button" id="mapReset">Ricentra</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================== recensione -->
+<section class="sec sec--alt">
+  <p class="vlabel m">06 — Ospiti</p>
+  <div class="wrap">
+    <figure class="quote rv">
+      <blockquote>“Proprietario gentile, alloggio in posizione centrale, ottimo ristorante al piano terra, terrazza sul tetto.”</blockquote>
+      <figcaption class="quote__foot m">
+        <span class="quote__score">10 / 10</span>
+        <span>Miroslav · Repubblica Ceca · agosto 2026</span>
+        <span>Recensione verificata su Booking.com</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================================================= contatti -->
+<section class="sec sec--deep" id="contatti">
+  <p class="vlabel m">07 — Contatti</p>
+  <div class="wrap cnt">
+    <div class="rv">
+      <p class="m">Contatti</p>
+      <h2 class="d2">Scrivici per le date libere.</h2>
+      <p class="lede">Rispondiamo in giornata. Facci sapere quando vorresti venire e in quante persone siete: ti mandiamo disponibilità e prezzo, senza impegno.</p>
+
+      <ul class="lines">
+        <li><a href="https://wa.me/393273198945" target="_blank" rel="noopener"><span class="k">WhatsApp</span><span class="v">327 319 8945</span></a></li>
+        <li><a href="tel:+393273198945"><span class="k">Telefono</span><span class="v">327 319 8945</span></a></li>
+        <li><a href="mailto:casamica.torrecanne@gmail.com"><span class="k">Email</span><span class="v">casamica.torrecanne@gmail.com</span></a></li>
+        <li><a href="https://www.airbnb.it/rooms/1459347159600669432" target="_blank" rel="noopener"><span class="k">Airbnb</span><span class="v">Vedi l'annuncio ↗</span></a></li>
+        <li><a href="https://www.booking.com/Share-xXIf4Y" target="_blank" rel="noopener"><span class="k">Booking</span><span class="v">Vedi l'annuncio ↗</span></a></li>
+      </ul>
+    </div>
+
+    <div class="rv">
+      <p class="m">Dove siamo</p>
+      <h2 class="d3" style="margin-top:1rem">Via del Faro 176<br>72015 Torre Canne (BR)</h2>
+      <p style="margin:1rem 0 0"><a class="btn" href="https://share.google/vSVCH7q4xJVE8JkkS" target="_blank" rel="noopener">Aprire su Google Maps <svg aria-hidden="true"><use href="#i-arrow"></use></svg></a></p>
+
+      <p class="m" style="color:var(--surf);margin:2.75rem 0 0">Come arrivare</p>
+      <ul class="getting">
+        <li>Aeroporto di Brindisi <span>55 km · 45 min</span></li>
+        <li>Aeroporto di Bari <span>85 km · 1 h</span></li>
+        <li>Stazione di Fasano <span>12 km · 18 min</span></li>
+        <li>Uscita SS379 “Torre Canne” <span>2 km · 3 min</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in m">
+    <img src="img/marchio-chiaro.png" alt="" width="53" height="48">
+    <p>CasA.Mi.Ca. · Via del Faro 176 · Torre Canne, Fasano (BR)</p>
+    <p>© 2026 — <a href="mailto:casamica.torrecanne@gmail.com">casamica.torrecanne@gmail.com</a></p>
+  </div>
+</footer>
+
+<dialog class="lb" id="lb" aria-label="Foto ingrandita">
+  <div class="lb__in">
+    <img id="lbImg" alt="">
+    <p class="lb__cap" id="lbCap"></p>
+    <button class="lb__b lb__prev" type="button" id="lbPrev" aria-label="Foto precedente"><svg aria-hidden="true"><use href="#i-left"></use></svg></button>
+    <button class="lb__b lb__next" type="button" id="lbNext" aria-label="Foto successiva"><svg aria-hidden="true"><use href="#i-right"></use></svg></button>
+    <button class="lb__b lb__x" type="button" id="lbClose" aria-label="Chiudi"><svg aria-hidden="true"><use href="#i-x"></use></svg></button>
+  </div>
+</dialog>
+
+<script src="assets/leaflet/leaflet.js" defer></script>
+<script src="assets/main.js" defer></script>
+</body>
+</html>
